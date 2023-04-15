@@ -79,4 +79,39 @@ describe('validation test', () => {
 
     done()
   })
+
+  it('[TEST] Serealize test', (done) => {
+    const person = {
+      name: 'leedonggyu',
+      age: 30,
+      skills: ['frontend', 'backend'],
+      friends: {
+        limjeayhock: {
+          job: 'programmer',
+        },
+        sinjunghyocn: {
+          job: 'police',
+        },
+        kimhyonchodl: {
+          job: 'police',
+        },
+      },
+    }
+
+    const model = szModel({
+      name: szParam().set(person.name, 'my_name').string().required(),
+      age: szParam().set(person.age, 'my_age').number().required(),
+      skills: szParam().set(person.skills, 'my_skills').array().required(),
+      friends: szParam().set(person.friends, 'my_friends').required(),
+    })
+
+    const seOutput = model.validate()
+
+    const deseOutput = model.validate(false)
+
+    console.log(seOutput)
+    console.log(deseOutput)
+
+    done()
+  })
 })
