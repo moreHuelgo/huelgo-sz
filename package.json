@@ -1,15 +1,17 @@
 {
   "name": "huelgo-sz",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Light Verify And Serialize Model",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/moreHuelgo/huelgo-sz"
   },
   "scripts": {
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "release": "npm run test && npm run build && npm run publish"
   },
   "keywords": [],
   "author": "",
