@@ -1,0 +1,33 @@
+{
+  "name": "huelgo-sz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreHuelgo/huelgo-sz"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-typescript": "^7.21.4",
+    "babel-plugin-inline-json-import": "^0.3.2",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "jest": "^29.5.0",
+    "tsc-alias": "^1.8.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0"
+  }
+}
