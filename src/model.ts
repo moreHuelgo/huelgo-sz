@@ -1,14 +1,14 @@
 import { Dictionary } from './interface'
 import { Validation } from './validation'
 
-export class Model {
+export class Model<T> {
   private data: Dictionary<Validation<unknown>>
 
   constructor(data: Dictionary<Validation<unknown>>) {
     this.data = data
   }
 
-  validate(isSerialize = true) {
+  validate<T>(isSerialize = true): { data: T; error: any[] } {
     return {
       data: isSerialize ? this.getSerialize() : this.getDeserialize(),
       error: this.getParamsError(),
@@ -23,20 +23,20 @@ export class Model {
     }, [])
   }
 
-  getSerialize() {
+  getSerialize<T>() {
     return Object.entries(this.data).reduce((acc, [k, v]) => {
       const { data } = v.getModel()
       acc[k] = data
       return acc
-    }, {})
+    }, {} as T)
   }
 
-  getDeserialize() {
+  getDeserialize<T>() {
     return Object.entries(this.data).reduce((acc, [_, v]) => {
       const { data, deserializeName } = v.getModel()
       acc[deserializeName] = data
       return acc
-    }, {})
+    }, {} as T)
   }
 }
 
