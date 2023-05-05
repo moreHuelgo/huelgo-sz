@@ -1,6 +1,6 @@
 {
   "name": "huelgo-sz",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Light Verify And Serialize Model",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
