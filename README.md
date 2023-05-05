@@ -32,6 +32,7 @@ const person = {
   },
 }
 
+// szModel
 const model = szModel({
   name: szParam().set(person.name, 'my_name').string().required(),
   age: szParam().set(person.age, 'my_age').number().required(),
@@ -40,7 +41,14 @@ const model = szModel({
 })
 
 // sereialize output
+const {data, error} = model.validate<{
+  name : string,
+  age : number,
+  skills : string[],
+  ...
+}>(true)
 
+/*
 {
     data: {
     name: 'leedonggyu',
@@ -54,8 +62,17 @@ const model = szModel({
     },
     error: []
 }
+*/
 
 // deserialize output
+const {data, error} = model.validate<{
+  my_name : string,
+  my_age : number,
+  my_skills : string[],
+  ...
+}>(false)
+
+/*
 {
     data: {
     my_name: 'leedonggyu',
@@ -69,4 +86,5 @@ const model = szModel({
     },
     error: []
 }
+*/
 ```

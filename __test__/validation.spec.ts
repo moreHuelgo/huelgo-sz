@@ -14,12 +14,12 @@ describe('validation test', () => {
       age: szParam().set(leedonggyu.donggyu_age, 'donggyu_age').number(),
     })
 
-    const seModel = result.getSerialize() as any
+    const seModel = result.getSerialize<{ job: string; name: string; age: number }>()
     expect(seModel.job).toBe('programmer')
     expect(seModel.name).toBe('my name is leeodnggyu')
     expect(seModel.age).toBe(28)
 
-    const deseModel = result.getDeserialize() as any
+    const deseModel = result.getDeserialize<{ donggyu_job: string; donggyu_name: string; donggyu_age: number }>()
     expect(deseModel.donggyu_job).toBe('programmer')
     expect(deseModel.donggyu_name).toBe('my name is leeodnggyu')
     expect(deseModel.donggyu_age).toBe(28)
@@ -44,7 +44,7 @@ describe('validation test', () => {
       myAge: szParam().set('10', 'my_age').number().required(),
     })
 
-    const { data, error } = model.validate()
+    const { data, error } = model.validate<{ myAge: number }>()
 
     expect(data).toMatchObject({
       myAge: '10',
